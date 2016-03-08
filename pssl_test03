@@ -1,17 +1,17 @@
-rem change Administrator's password and never expire
-rem net user Administrator password0!
-rem wmic useraccount where "Name='Administrator'" set PasswordExpires=FALSE
+# change Administrator's password and never expire
+net user Administrator password0!
+wmic useraccount where "Name='Administrator'" set PasswordExpires=FALSE
 
-rem add user testadmin as a administrator
-rem net user testadmin password0! /add /active:yes /expires:never /fullname:"Test Admin" /passwordchg:yes /workstations:*
-rem net localgroup "Administrators" "testadmin" /add
+# add user testadmin as a administrator
+net user testadmin password0! /add /active:yes /expires:never /fullname:"Test Admin" /passwordchg:yes /workstations:*
+net localgroup "Administrators" "testadmin" /add
 
-rem Disable Windows Update
-rem REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v "AUOptions" /t REG_DWORD /d 2 /f
-rem NET STOP WUAUSERV
-rem NET START WUAUSERV
+# Disable Windows Update
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v "AUOptions" /t REG_DWORD /d 2 /f
+NET STOP WUAUSERV
+NET START WUAUSERV
 
-rem change primary language and timezone to Japanese
+# change primary language and timezone to Japanese
 $lpUrl = "http://fg.v4.download.windowsupdate.com/msdownload/update/software/updt/2012/10"
 $lpFile = "windowsserver2012-kb2607607-x64-jpn_d079f61ac6b2bab923f14cd47c68c4af0835537f.cab"
 $languagePackURI = "$lpurl/$lpfile"
