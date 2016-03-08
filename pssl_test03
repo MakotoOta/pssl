@@ -1,5 +1,28 @@
-net user Administrator password0!
-wmic useraccount where "Name='Administrator'" set PasswordExpires=FALSE
+rem change Administrator's password and never expire
+rem net user Administrator password0!
+rem wmic useraccount where "Name='Administrator'" set PasswordExpires=FALSE
 
-net user testadmin password0! /add /active:yes /expires:never /fullname:"Test Admin" /passwordchg:yes /workstations:*
-net loclagroup "Administrators" "testadmin" /add
+rem add user testadmin as a administrator
+rem net user testadmin password0! /add /active:yes /expires:never /fullname:"Test Admin" /passwordchg:yes /workstations:*
+rem net localgroup "Administrators" "testadmin" /add
+
+rem Disable Windows Update
+rem REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v "AUOptions" /t REG_DWORD /d 2 /f
+rem NET STOP WUAUSERV
+rem NET START WUAUSERV
+
+rem change primary language and timezone to Japanese
+$lpUrl = "http://fg.v4.download.windowsupdate.com/msdownload/update/software/updt/2012/10"
+$lpFile = "windowsserver2012-kb2607607-x64-jpn_d079f61ac6b2bab923f14cd47c68c4af0835537f.cab"
+$languagePackURI = "$lpurl/$lpfile"
+$wintemp = "c:\temp"
+
+Set-WinUserLanguageList ja-JP, en-US -Force
+Add-WindowsPackage -Online -PackagePath (Join-Path $wintemp $lpfile -Resolve)
+Set-WinUILanguageOverride -Language ja-JP
+Set-WinSystemLocale -SystemLocale ja-JP
+Set-WinHomeLocation -GeoId 0x7A
+Set-WinCultureFromLanguageListOptOut -OptOut $False
+tzutil /s ÅgTokyo Standard Zone_dstoffÅh
+Set-ItemProperty 'registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters' -Name 'LayerDriver JPN' -Value 'kbd106.dll'
+restart-computer -AsJob
