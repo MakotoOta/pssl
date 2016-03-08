@@ -1,0 +1,5 @@
+net user Administrator password0!
+wmic useraccount where "Name='Administrator'" set PasswordExpires=FALSE
+
+net user testadmin password0! /add /active:yes /expires:never /fullname:"Test Admin" /passwordchg:yes /workstations:*
+net loclagroup "Administrators" "testadmin" /add
