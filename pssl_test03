@@ -21,6 +21,6 @@ Set-WinUILanguageOverride -Language ja-JP
 Set-WinSystemLocale -SystemLocale ja-JP
 Set-WinHomeLocation -GeoId 0x7A
 Set-WinCultureFromLanguageListOptOut -OptOut $False
-tzutil /s ÅgTokyo Standard Zone_dstoffÅh
+tzutil /s "Tokyo Standard Time"
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters" /v "LayerDriver JPN" /t REG_SZ /d "kbd106.dll" /f
 restart-computer -AsJob -Force
