@@ -3,8 +3,8 @@ net user Administrator password0!
 wmic useraccount where "Name='Administrator'" set PasswordExpires=FALSE
 
 # add user testadmin as a administrator
-net user testadmin password0! /add /active:yes /expires:never /fullname:"Test Admin" /passwordchg:yes /workstations:*
-net localgroup "Administrators" "testadmin" /add
+# net user testadmin password0! /add /active:yes /expires:never /fullname:"Test Admin" /passwordchg:yes /workstations:*
+# net localgroup "Administrators" "testadmin" /add
 
 # Disable Windows Update
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v "AUOptions" /t REG_DWORD /d 2 /f
