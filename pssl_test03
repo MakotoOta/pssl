@@ -23,10 +23,10 @@ REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameter
 tzutil /s "Tokyo Standard Time"
 
 #Add-WindowsPackage -Online -PackagePath (Join-Path $wintemp $lpfile -Resolve)
-Set-WinUserLanguageList ja-JP, en-US -Force
-Set-WinUILanguageOverride -Language ja-JP
-Set-WinSystemLocale -SystemLocale ja-JP
-Set-WinHomeLocation -GeoId 0x7A
-Set-WinCultureFromLanguageListOptOut -OptOut $False
+#Set-WinUserLanguageList ja-JP, en-US -Force
+#Set-WinUILanguageOverride -Language ja-JP
+#Set-WinSystemLocale -SystemLocale ja-JP
+#Set-WinHomeLocation -GeoId 0x7A
+#Set-WinCultureFromLanguageListOptOut -OptOut $False
 
 restart-computer -AsJob
