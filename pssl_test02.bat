@@ -11,5 +11,5 @@ powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl2.ps1
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\test.ps1
 
 rd /s /q c:\temp
-del c:\*.bat
 del c:\*.ps1
+del c:\*.bat
