@@ -1,11 +1,9 @@
-Set-WinUILanguageOverride -Language ja-JP
-Set-WinSystemLocale -SystemLocale ja-JP
-Set-WinHomeLocation -GeoId 0x7A
-Set-WinCultureFromLanguageListOptOut -OptOut $False
-
 bcdedit /set locale ja-JP
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Nls\Language" /v "Default" /t REG_SZ /d "0411" /f
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Nls\Language" /v "InstallLanguage" /t REG_SZ /d "0411" /f
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters" /v "LayerDriver JPN" /t REG_SZ /d "kbd106.dll" /f
 
-#restart-computer -Force -AsJob
+powershell -NoProfile -ExecutionPolicy Unrestricted c:\after02.ps1
+
+del /Q postInstallScript.log
+del /Q c:\after*
