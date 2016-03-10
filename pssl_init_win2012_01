@@ -10,3 +10,6 @@ wmic useraccount where "Name='Administrator'" set PasswordExpires=FALSE
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v "AUOptions" /t REG_DWORD /d 2 /f
 NET STOP WUAUSERV
 NET START WUAUSERV
+
+# change Timezone
+tzutil /s "Tokyo Standard Time"

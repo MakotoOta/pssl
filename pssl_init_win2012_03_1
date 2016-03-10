@@ -7,6 +7,5 @@ bcdedit /set locale ja-JP
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Nls\Language" /v "Default" /t REG_SZ /d "0411" /f
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Nls\Language" /v "InstallLanguage" /t REG_SZ /d "0411" /f
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters" /v "LayerDriver JPN" /t REG_SZ /d "kbd106.dll" /f
-tzutil /s "Tokyo Standard Time"
 
 #restart-computer -Force -AsJob
