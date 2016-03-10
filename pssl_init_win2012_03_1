@@ -1,11 +1,3 @@
-# change primary language and timezone to Japanese
-$lpFile = "after.cab"
-$wintemp = "c:\"
-
-#dism /online /add-package /packagepath:c:\after.cab
-
-Set-WinUserLanguageList ja-JP, en-US -Force
-Add-WindowsPackage -Online -PackagePath (Join-Path $wintemp $lpfile -Resolve)
 Set-WinUILanguageOverride -Language ja-JP
 Set-WinSystemLocale -SystemLocale ja-JP
 Set-WinHomeLocation -GeoId 0x7A
@@ -17,4 +9,4 @@ REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Nls\Language" /v "Insta
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters" /v "LayerDriver JPN" /t REG_SZ /d "kbd106.dll" /f
 tzutil /s "Tokyo Standard Time"
 
-restart-computer -Force -AsJob
+#restart-computer -Force -AsJob

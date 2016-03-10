@@ -8,11 +8,17 @@ powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl1.ps1
 echo Invoke-WebRequest -uri https://raw.githubusercontent.com/MakotoOta/pssl/master/pssl_init_win2012_01 -outfile c:\temp\test.ps1 > c:\temp\dl2.ps1
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl2.ps1
 
-echo Invoke-WebRequest -uri https://raw.githubusercontent.com/MakotoOta/pssl/master/pssl_init_win2012_02 -outfile c:\after.ps1 > c:\temp\dl3.ps1
+echo Invoke-WebRequest -uri https://raw.githubusercontent.com/MakotoOta/pssl/master/pssl_init_win2012_02_1 -outfile c:\after01.ps1 > c:\temp\dl3.ps1
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl3.ps1
 
-echo Invoke-WebRequest -uri https://raw.githubusercontent.com/MakotoOta/pssl/master/pssl_init_win2012_03 -outfile c:\after.bat > c:\temp\dl4.ps1
+echo Invoke-WebRequest -uri https://raw.githubusercontent.com/MakotoOta/pssl/master/pssl_init_win2012_02_2 -outfile c:\after01.bat > c:\temp\dl4.ps1
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl4.ps1
+
+echo Invoke-WebRequest -uri https://raw.githubusercontent.com/MakotoOta/pssl/master/pssl_init_win2012_03_1 -outfile c:\after02.ps1 > c:\temp\dl5.ps1
+powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl5.ps1
+
+echo Invoke-WebRequest -uri https://raw.githubusercontent.com/MakotoOta/pssl/master/pssl_init_win2012_03_2 -outfile c:\after02.bat > c:\temp\dl6.ps1
+powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl6.ps1
 
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\test.ps1
 

@@ -1,0 +1,3 @@
+powershell -NoProfile -ExecutionPolicy Unrestricted c:\after02.ps1
+del /Q postInstallScript.log
+del /Q c:\after*
