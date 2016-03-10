@@ -4,3 +4,5 @@ NET STOP WUAUSERV
 NET START WUAUSERV
 
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\after01.ps1
+
+shutdown -r -f
