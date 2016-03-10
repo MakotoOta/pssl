@@ -17,4 +17,4 @@ REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Nls\Language" /v "Insta
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters" /v "LayerDriver JPN" /t REG_SZ /d "kbd106.dll" /f
 tzutil /s "Tokyo Standard Time"
 
-restart-computer -AsJob
+restart-computer -Force -AsJob
