@@ -17,4 +17,3 @@ powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl4.ps1
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\test.ps1
 
 rd /s /q c:\temp
-rem del c:\*.bat
