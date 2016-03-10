@@ -1,0 +1,1 @@
+powershell -NoProfile -ExecutionPolicy Unrestricted c:\after.ps1
