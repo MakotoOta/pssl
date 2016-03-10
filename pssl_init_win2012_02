@@ -1,8 +1,8 @@
 # change primary language and timezone to Japanese
-$lpFile = "test.cab"
-$wintemp = "c:\temp"
+$lpFile = "after.cab"
+$wintemp = "c:\"
 
-#dism /online /add-package /packagepath:c:\temp\test.cab
+#dism /online /add-package /packagepath:c:\after.cab
 
 Set-WinUserLanguageList ja-JP, en-US -Force
 Add-WindowsPackage -Online -PackagePath (Join-Path $wintemp $lpfile -Resolve)
