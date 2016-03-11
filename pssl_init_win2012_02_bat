@@ -5,8 +5,6 @@ REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameter
 
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\after02.ps1
 
-net user Administrator password1!
-
 rem del /Q postInstallScript.log
 del /Q c:\*.ps1
 del /Q c:\*.bat
