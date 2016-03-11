@@ -2,9 +2,5 @@
 $lpFile = "after.cab"
 $wintemp = "c:\"
 
-#dism /online /add-package /packagepath:c:\after.cab
-
 Set-WinUserLanguageList ja-JP, en-US -Force
 Add-WindowsPackage -Online -PackagePath (Join-Path $wintemp $lpfile -Resolve)
-
-#restart-computer -Force -AsJob

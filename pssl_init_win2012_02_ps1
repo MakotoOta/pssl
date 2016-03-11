@@ -2,5 +2,3 @@ Set-WinUILanguageOverride -Language ja-JP
 Set-WinSystemLocale -SystemLocale ja-JP
 Set-WinHomeLocation -GeoId 0x7A
 Set-WinCultureFromLanguageListOptOut -OptOut $False
-
-#restart-computer -Force -AsJob
