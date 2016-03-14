@@ -22,7 +22,7 @@ echo Set-Item WSMan:\localhost\Client\TrustedHosts -Value otatest13 -Force > c:\
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl6.ps1
 
 rem change Administrator's password and never expire
-net user Administrator password0!
+rem net user Administrator password0!
 wmic useraccount where "Name='Administrator'" set PasswordExpires=FALSE
 
 rem add user testadmin as a administrator

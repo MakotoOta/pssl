@@ -8,4 +8,4 @@ Start-Sleep -s 600
 
 Invoke-Command -Computername $RemoteNode -ScriptBlock { c:\after02.bat }
 
-Invoke-Command -Computername $RemoteNode -ScriptBlock { net user Administrator password1! }
+Invoke-Command -Computername $RemoteNode -ScriptBlock { net user Administrator password0! }
