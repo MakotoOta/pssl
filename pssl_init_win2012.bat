@@ -22,7 +22,7 @@ echo Set-Item WSMan:\localhost\Client\TrustedHosts -Value otatest01 -Force > c:\
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl6.ps1
 
 rem Public NW disabled
-netsh interface set interface "PublicNetwork-A" disabled
+rem netsh interface set interface "PublicNetwork-A" disabled
 
 rem change Administrator's password and never expire
 net user Administrator password0!

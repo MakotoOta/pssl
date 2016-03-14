@@ -1,11 +1,3 @@
-rem Windows Firewall setting
-rem REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v "PortNumber" /t REG_DWORD /d 13579 /f
-rem netsh advfirewall set allprofiles state on
-rem netsh advfirewall firewall delete rule name=all dir=in protocol=tcp localport=3389
-rem netsh advfirewall firewall add rule name="ChangedRDP" dir=in action=allow protocol=tcp localport=13579 remoteip=184.172.32.30
-rem netsh advfirewall firewall delete rule name=all dir=in protocol=tcp localport=80
-rem netsh advfirewall firewall add rule name="PSMgmt" dir=in action=allow protocol=tcp localport=80 remoteip=184.172.32.30
-
 rem Disable Windows Update
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v "AUOptions" /t REG_DWORD /d 2 /f
 NET STOP WUAUSERV
