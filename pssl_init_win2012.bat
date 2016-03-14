@@ -24,14 +24,6 @@ powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl6.ps1
 rem Public NW disabled
 rem netsh interface set interface "PublicNetwork-A" disabled
 
-rem Windows Firewall setting
-REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v "PortNumber" /t REG_DWORD /d 13579 /f
-netsh advfirewall set allprofiles state on
-netsh advfirewall firewall delete rule name=all dir=in
-netsh advfirewall firewall add rule name="ChangedRDP" dir=in action=allow protocol=tcp localport=13579 localip=10.0.0.0/8
-netsh advfirewall firewall add rule name="WSman" dir=in action=allow protocol=tcp localport=5985 localip=10.0.0.0/8
-netsh advfirewall firewall add rule name="Ping" dir=in action=allow protocol=icmpv4
-
 rem change Administrator's password and never expire
 net user Administrator password0!
 wmic useraccount where "Name='Administrator'" set PasswordExpires=FALSE
