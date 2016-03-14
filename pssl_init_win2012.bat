@@ -1,5 +1,5 @@
 echo "" >> C:\Windows\System32\Drivers\etc\hosts
-rem echo 184.172.32.30 otatest13 otatest13.test01.test >> C:\Windows\System32\Drivers\etc\hosts
+echo 10.36.169.7 otatest01 otatest01.test02.test >> C:\Windows\System32\Drivers\etc\hosts
 
 md c:\temp
 
@@ -18,8 +18,11 @@ powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl4.ps1
 echo Invoke-WebRequest -uri https://raw.githubusercontent.com/MakotoOta/pssl/master/pssl_init_win2012_02_bat -outfile c:\after02.bat > c:\temp\dl5.ps1
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl5.ps1
 
-rem echo Set-Item WSMan:\localhost\Client\TrustedHosts -Value otatest13 -Force > c:\temp\dl6.ps1
-rem powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl6.ps1
+echo Set-Item WSMan:\localhost\Client\TrustedHosts -Value otatest01 -Force > c:\temp\dl6.ps1
+powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl6.ps1
+
+rem Public NW disabled
+netsh interface set interface "PublicNetwork-A" disabled
 
 rem change Administrator's password and never expire
 net user Administrator password0!

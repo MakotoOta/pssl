@@ -11,6 +11,10 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpd
 NET STOP WUAUSERV
 NET START WUAUSERV
 
+rem Time syncronize
+w32tm /config /update /manualpeerlist:time.service.networklayer.com /syncfromflags:manual /reliable:YES
+w32tm /resync
+
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\after01.ps1
 
 shutdown -r -f
