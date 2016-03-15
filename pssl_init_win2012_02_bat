@@ -5,7 +5,10 @@ REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameter
 
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\after02.ps1
 
-rem del /Q postInstallScript.log
-del /Q c:\*.cab
-del /Q c:\*.ps1
-del /Q c:\*.bat
+rem Windows Firewall setting
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v "PortNumber" /t REG_DWORD /d 13579 /f
+netsh advfirewall set allprofiles state on
+netsh advfirewall firewall delete rule name=all dir=in
+netsh advfirewall firewall add rule name="ChangedRDP" dir=in action=allow protocol=tcp localport=13579 localip=10.0.0.0/8
+
+shutdown -r -f

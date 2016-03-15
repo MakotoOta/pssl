@@ -21,16 +21,6 @@ powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl5.ps1
 rem Public NW disabled
 netsh interface set interface "PublicNetwork-A" disabled
 
-rem Windows Firewall setting
-REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v "PortNumber" /t REG_DWORD /d 13579 /f
-netsh advfirewall set allprofiles state on
-netsh advfirewall firewall delete rule name=all dir=in
-netsh advfirewall firewall add rule name="ChangedRDP" dir=in action=allow protocol=tcp localport=13579 localip=10.0.0.0/8
-netsh advfirewall firewall add rule name="WSman" dir=in action=allow protocol=tcp localport=5985 localip=10.0.0.0/8
-netsh advfirewall firewall add rule name="Ping" dir=in action=allow protocol=icmpv4
-net stop winrm
-winrm qc -q
-
 echo Set-Item WSMan:\localhost\Client\TrustedHosts -Value otatest01 -Force > c:\temp\dl6.ps1
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl6.ps1
 
