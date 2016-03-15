@@ -5,7 +5,7 @@ Set-WinCultureFromLanguageListOptOut -OptOut $False
 
 # Public NW disabled
 
-netsh interface ip show ipaddresses | Select-String ":" | % {$($_-split(g:h))[1]} > c:\temp.txt
+netsh interface ip show ipaddresses | Select-String ":" | % {$($_-split(":"))[1]} > c:\temp.txt
 
 $i=1
 foreach ($l in Get-Content c:\temp.txt) {
