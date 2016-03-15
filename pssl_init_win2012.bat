@@ -18,9 +18,6 @@ powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl4.ps1
 echo Invoke-WebRequest -uri https://raw.githubusercontent.com/MakotoOta/pssl/master/pssl_init_win2012_02_bat -outfile c:\after02.bat > c:\temp\dl5.ps1
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl5.ps1
 
-rem Public NW disabled
-netsh interface set interface "PublicNetwork-A" disabled
-
 echo Set-Item WSMan:\localhost\Client\TrustedHosts -Value otatest01 -Force > c:\temp\dl6.ps1
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl6.ps1
 
