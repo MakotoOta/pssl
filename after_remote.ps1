@@ -21,5 +21,6 @@ function after_process($RemoteNode)
 foreach ($l in Get-Content c:\node_list.txt)
 {
     $m=$l.Substring(0)
-    Start-Job { after_process($m) }
+    #Start-Job { after_process($m) }
+    after_process($m)
 }
