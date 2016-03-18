@@ -21,6 +21,10 @@ powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl5.ps1
 echo Set-Item WSMan:\localhost\Client\TrustedHosts -Value otatest01 -Force > c:\temp\dl6.ps1
 powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl6.ps1
 
+echo Invoke-WebRequest -uri https://raw.githubusercontent.com/MakotoOta/pssl/master/pssl_nwdisable_win2012_ps1 -outfile c:\nwdisable.ps1 > c:\temp\dl7.ps1
+powershell -NoProfile -ExecutionPolicy Unrestricted c:\temp\dl7.ps1
+powershell -NoProfile -ExecutionPolicy Unrestricted c:\nwdisable.ps1
+
 rem change Administrator's password and never expire
 net user Administrator password0!
 wmic useraccount where "Name='Administrator'" set PasswordExpires=FALSE
