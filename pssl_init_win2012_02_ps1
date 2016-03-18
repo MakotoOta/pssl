@@ -2,19 +2,3 @@ Set-WinUILanguageOverride -Language ja-JP
 Set-WinSystemLocale -SystemLocale ja-JP
 Set-WinHomeLocation -GeoId 0x7A
 Set-WinCultureFromLanguageListOptOut -OptOut $False
-
-# Public NW disabled
-
-netsh interface ip show ipaddresses | Select-String ":" | % {$($_-split(":"))[1]} > c:\temp.txt
-
-$i=1
-foreach ($l in Get-Content c:\temp.txt) {
-    $m=$l.Substring(1)
-    $n=netsh interface ip show ipaddresses interface=$m | Select-String " 10."
-    if( $n.Count -eq 0 -And $i -ne 1 ){
-        netsh interface set interface $m disabled
-    }
-    $i++
-}
-
-Remove-Item c:\temp.txt
